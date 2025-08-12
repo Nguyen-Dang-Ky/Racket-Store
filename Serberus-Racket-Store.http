@@ -1,6 +1,0 @@
-@Serberus_Racket_Store_HostAddress = http://localhost:5132
-
-GET {{Serberus_Racket_Store_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
