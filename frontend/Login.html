@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="Home.html" class="logo">RACKET STORE</a>
+        <nav class="nav">
+            <a href="Home.html" class="nav-link">HOME</a>
+            <a href="Product.html" class="nav-link">PRODUCT</a>
+            <a href="Cart.html" class="nav-link">CART</a>
+            <div id="auth-links">
+                <p>
+                    <a href="Login.html" class="nav-link">LOGIN</a> /
+                    <a href="SignUp.html" class="nav-link">SIGNUP</a>
+                </p>
+            </div>
+            </nav>
+    </header>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye-slash" id="passwordToggleIcon"></i>
+                    </span>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <button type="submit" class="login-button">LOGIN</button>
+            
+        </form>
+        <div class="alert-message" id="loginAlert"></div>
+    </div>
+
+    <script src="SCRIPT/login.js" src="SCRIPT/Home.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="CSS/sigup.css">
+</head>
+<body>
+    <header class="header">
+        <a href="Home.html" class="logo">RACKET STORE</a>
+        <nav class="nav">
+            <a href="Home.html" class="nav-link">HOME</a>
+            <a href="Product.html" class="nav-link">PRODUCT</a>
+            <a href="Cart.html" class="nav-link">CART</a>
+            <div id="auth-links">
+                <p>
+                    <a href="Login.html" class="nav-link">LOGIN</a> /
+                    <a href="SignUp.html" class="nav-link">SIGNUP</a>
+                </p>
+            </div>
+            <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+            </nav>
+    </header>
+    <div class="signup-container">
+        <h2>SIGN UP</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input type="hidden" id="createAt" name="createAt">
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="SCRIPT/SignUp.js" src="SCRIPT/Home.js"></script>
+</body>
+</html>

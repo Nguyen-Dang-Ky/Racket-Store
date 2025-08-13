@@ -1,0 +1,436 @@
+/* --- Global Variables & Resets --- */
+:root {
+    --primary-color: #3498db; /* A vibrant blue for main accents */
+    --secondary-color: #2c3e50; /* Dark blue-gray for text and contrasts */
+    --accent-color: #e74c3c; /* A touch of red for active states/highlights */
+    --text-light-color: #ecf0f1; /* Light text for dark backgrounds */
+    --background-light: #f4f7f6; /* Very light gray for overall background */
+    --background-dark: #34495e; /* Dark background for header/footer */
+    --card-background: #ffffff; /* Pure white for forms/cards */
+    --border-color: #e0e0e0; /* Light gray for borders */
+    --success-color: #27ae60; /* Green for success messages */
+    --error-color: #c0392b; /* Darker red for error messages */
+    --font-family: 'Roboto', sans-serif; /* Using Roboto for a clean look */
+    --header-height: 70px; /* Define header height */
+}
+
+/* Import Google Font (Roboto) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Universal Box-Sizing & Basic Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-light);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Stack header and content vertically */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Header Styles --- */
+.header {
+    background-color: var(--background-dark);
+    color: var(--text-light-color);
+    padding: 0 20px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Keep header fixed at top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-light-color);
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Spacing between nav links */
+}
+
+.nav-link {
+    color: var(--text-light-color);
+    font-weight: 500;
+    font-size: 1.05em;
+    padding: 5px 0;
+    position: relative; /* For underline effect */
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Underline effect for nav links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav p {
+    margin: 0; /* Remove default paragraph margin */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between LOGIN / SIGNUP */
+}
+
+.nav p .nav-link {
+    padding: 0; /* No extra padding for login/signup */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95em;
+}
+
+.nav .fas.fa-search {
+    font-size: 1.2em;
+    color: var(--text-light-color);
+}
+
+.nav .fas.fa-search:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Content Area (Signup Form) --- */
+.signup-wrapper {
+    flex-grow: 1; /* Allow content to take available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px; /* Add vertical padding */
+}
+
+.signup-container {
+    background-color: var(--card-background);
+    padding: 45px 35px; /* Generous padding */
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    width: 100%;
+    max-width: 480px; /* Wider form for better balance */
+    text-align: center;
+    animation: slideInUp 0.8s ease-out forwards; /* Slide up animation */
+}
+
+/* Animation for signup container */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.signup-title {
+    color: var(--primary-color);
+    margin-bottom: 35px;
+    font-size: 2.5em; /* Larger title */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 22px; /* Consistent spacing */
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 18px; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: var(--secondary-color);
+    background-color: var(--background-light); /* Light background for inputs */
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2); /* Soft glow */
+    outline: none;
+    background-color: var(--card-background);
+}
+
+input::placeholder {
+    color: var(--secondary-color);
+    opacity: 0.6;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-button:hover {
+    background-color: #2980b9; /* Slightly darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Display */
+.message {
+    margin-top: 30px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95em;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInMessage 0.6s forwards;
+    text-align: left;
+    word-break: break-word;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for messages */
+}
+
+@keyframes fadeInMessage {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.success {
+    background-color: #e8f5e9; /* Very light green */
+    color: var(--success-color);
+    border: 1px solid #a8e6cf;
+}
+
+.message.error {
+    background-color: #ffebee; /* Very light red */
+    color: var(--error-color);
+    border: 1px solid #ffcdd2;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .nav {
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.6em;
+    }
+
+    .nav-link {
+        font-size: 0.95em;
+    }
+
+    .signup-container {
+        padding: 30px 20px;
+        margin: 20px; /* Add some margin on smaller screens */
+    }
+
+    .signup-title {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+
+    .submit-button {
+        padding: 14px 20px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-container {
+        margin: 15px;
+        padding: 25px 15px;
+        border-radius: 8px;
+    }
+
+    .signup-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 0.85em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .submit-button {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+
+    .message {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+}
+/* --- Submit Button --- */
+.submit-button {
+    background-color: var(--primary-color); /* Sử dụng màu xanh chính */
+    color: white;
+    padding: 16px 30px; /* Padding lớn hơn */
+    border: none;
+    border-radius: 8px; /* Bo góc nhẹ */
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700; /* Rất đậm */
+    width: 100%;
+    margin-top: 30px;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà cho tất cả các thuộc tính */
+    text-transform: uppercase; /* Chữ hoa */
+    letter-spacing: 1px; /* Khoảng cách giữa các chữ cái */
+    position: relative; /* Dùng cho hiệu ứng hover nâng cao */
+    overflow: hidden; /* Che đi phần overflow của hiệu ứng */
+    z-index: 1; /* Đảm bảo nút nằm trên hiệu ứng */
+}
+
+.submit-button:hover {
+    background-color: #2980b9; /* Màu xanh đậm hơn một chút khi hover */
+    transform: translateY(-3px); /* Nút nhấc lên một chút */
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4); /* Bóng lớn hơn, rõ hơn */
+}
+
+.submit-button:active {
+    transform: translateY(0); /* Nút nhấn xuống */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bóng nhỏ lại khi nhấn */
+}
+
+/* Hiệu ứng gợn sóng (ripple effect) hoặc đổ bóng bên trong khi nhấn (tùy chọn) */
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3); /* Màu trắng trong suốt */
+    border-radius: 50%;
+    transition: width 0.4s ease-out, height 0.4s ease-out, top 0.4s ease-out, left 0.4s ease-out;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Đặt dưới nút */
+    opacity: 0;
+}
+
+.submit-button:active::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+    transition: width 0s, height 0s, opacity 0s; /* Không chuyển động khi active */
+}
+
+/* Hiệu ứng border khi hover (tùy chọn thay thế cho shadow) */
+/*
+.submit-button::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #007bff, #2ecc71); // Gradient border
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submit-button:hover::after {
+    opacity: 1;
+}
+*/
+
+/* Trạng thái bị vô hiệu hóa (nếu bạn thêm thuộc tính disabled vào button) */
+.submit-button:disabled {
+    background-color: #cccccc; /* Màu xám */
+    cursor: not-allowed;
+    transform: translateY(0);
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* Thêm biểu tượng (nếu muốn) */
+/* Ví dụ:
+.submit-button span {
+    margin-right: 8px;
+}
+*/

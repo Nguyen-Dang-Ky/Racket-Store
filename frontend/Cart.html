@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/Cart.css">
+  <title>Cart</title>
+</head>
+<body>
+  <header class="header">
+        <a href="Home.html" class="logo">RACKET STORE</a>
+        <nav class="nav">
+            <a href="Home.html" class="nav-link">HOME</a>
+            <a href="Product.html" class="nav-link">PRODUCT</a>
+            <a href="Cart.html" class="nav-link">CART</a>
+            <div id="auth-links">
+                <p>
+                    <a href="Login.html" class="nav-link">LOGIN</a> /
+                    <a href="SignUp.html" class="nav-link">SIGNUP</a>
+                </p>
+            </div>
+            <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+            </nav>
+    </header>
+    <section class="hero-banner">
+        <div class="banner-content">
+            <h1>CART ITEM</h1>
+        </div>
+    </section>
+
+     <main>
+        <section class="cart-section">
+            <h2>All item in cart</h2>
+            <div id="cartAlert" class="alert-message" style="display: none;"></div>
+            <div id="cart-items" class="cart-list">
+                <p class="no-items-message" style="display: none;">Your cart is empty</p>
+                </div>
+
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">0 VNĐ</span></p>
+                <button class="checkout-btn">Pay</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="SCRIPT/Cart.js"></script>
+    <script src="SCRIPT/Home.js"></script>
+</body >
+</html>

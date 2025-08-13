@@ -1,0 +1,315 @@
+/* Reset CSS cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+
+
+.header .nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header .nav-link {
+    color: #555;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.header .nav-link:hover {
+    color: #007bff; 
+}
+
+.header .nav-link .fas {
+    font-size: 20px;
+}
+
+
+.hero-banner {
+    background: url('https://media.vov.vn/uploaded/hungbm/2014_11_09/lee1_envn.jpg') no-repeat center center/cover;
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.hero-banner::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-banner .banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.main-content {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+    display: inline-block; 
+}
+
+.section-title::after { 
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background-color: #007bff; 
+}
+
+.product-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; 
+    justify-items: center; 
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; 
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    max-width: 100%;
+height: 150px; 
+margin-bottom: 15px;
+border-radius: 4px;
+}
+
+.product-card .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.footer {
+    padding: 30px 20px;
+    background-color: #333;
+    color: #eee;
+    text-align: center;
+    position: relative; 
+    min-height: 80px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer .address {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.floating-controls {
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    z-index: 1000; 
+}
+
+.control-btn {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .header .nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-banner h1 {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .footer .address {
+        font-size: 12px;
+    }
+
+    .floating-controls {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 200px;
+    }
+
+    .hero-banner h1 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-card img {
+        height: 150px; 
+        object-fit: contain; 
+    }
+
+    .product-card .product-name {
+        font-size: 16px;
+    }
+}
+/* Header */
+.header {
+    background-color: #fff; 
+    padding: 15px 50px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-bottom: 1px solid #eee; 
+}
+
+.logo {
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #333; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.nav {
+    display: flex;
+    align-items: center; 
+    gap: 25px; 
+}
+
+.nav-link {
+    text-decoration: none; 
+    color: #555; 
+    font-size: 16px; 
+    font-weight: 600;
+    transition: color 0.3s ease; 
+}
+
+.nav-link:hover {
+    color: #000; 
+}
+
+.nav p {
+    margin: 0; 
+    color: #555; 
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav p .nav-link {
+    color: #555;
+}
+
+.nav p .nav-link:hover {
+    color: #000;
+}
+
+/* Thêm Font Awesome cho icon tìm kiếm nếu chưa có */
+/* Đảm bảo bạn đã thêm dòng này trong phần head của HTML */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> */
+/* Nếu bạn dùng Font Awesome 6, hãy dùng link tương ứng */
